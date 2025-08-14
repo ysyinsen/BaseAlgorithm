@@ -1,0 +1,16 @@
+# 编译生成的文件夹和文件（常见的编译输出目录）
+bin/
+bin-int/
+
+# Visual Studio 相关的配置和缓存文件
+.vs/
+*.sln.cache
+*.suo
+*.user
+
+# 临时文件、编译中间产物等
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
