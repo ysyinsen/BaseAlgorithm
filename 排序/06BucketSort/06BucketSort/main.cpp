@@ -7,7 +7,7 @@ void BucketSort(std::vector<int>& vec)
 	int min = *min_element(vec.begin(), vec.end());
 	int max = *max_element(vec.begin(), vec.end());
 
-	//number of bucket: size is vec.size() 
+	//number of bucket: bucket`s size is vec.size() 
 	int bucketNum = (max - min + 1) / vec.size() + 1;
 	//Create 2D array
 	std::vector<std::vector<int>> Bucket(bucketNum);
