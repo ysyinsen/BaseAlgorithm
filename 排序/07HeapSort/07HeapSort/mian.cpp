@@ -36,3 +36,7 @@ int main()
 	std::cout << std::endl;
 	system("pause");
 }
+
+//时间复杂度：O(n*log n)
+//空间复杂度：O(1)
+//稳定性：不稳定
