@@ -20,6 +20,6 @@ ll Quick_pow(ll a, ll b)
 
 int main()
 {
-	cout << Quick_pow(5, 8) << endl;
+	cout << Quick_pow(5, 0) << endl;
 	system("pause");
 }

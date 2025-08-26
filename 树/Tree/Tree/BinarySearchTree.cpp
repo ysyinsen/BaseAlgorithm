@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -18,15 +19,17 @@ void build_binarySearchTree(vector<int> a) {
 		treeNode* tmp = new treeNode(a[i]);
 		treeNode* troot = root;
 		while (troot) {
+			//左子树
 			if (tmp->value < troot->value) {
-				if (troot->lchild = NULL) {
+				if (troot->lchild == NULL) {
 					troot->lchild = tmp;
 					break;
 				}
 				else troot = troot->lchild;
 			}
+			//右子树
 			else if (tmp->value > troot->value) {
-				if (troot->rchild = NULL) {
+				if (troot->rchild == NULL) {
 					troot->rchild = tmp;
 					break;
 				}
@@ -44,7 +47,6 @@ void PreOrder(treeNode* root) {
 	PreOrder(root->lchild);
 	PreOrder(root->rchild);
 }
-
 //中序遍历
 void InOrder(treeNode* root) {
 	if (root == NULL) {
@@ -54,7 +56,6 @@ void InOrder(treeNode* root) {
 	cout << root->value;
 	InOrder(root->rchild);
 }
-
 //后序遍历
 void PostOrder(treeNode* root) {
 	if (root == NULL) {
@@ -64,12 +65,37 @@ void PostOrder(treeNode* root) {
 	PostOrder(root->rchild);
 	cout << root->value;
 }
+//基于广度优先搜索实现的层次遍历
+void LayerOrder(treeNode* root) {
+	queue<treeNode*> q;
+	q.push(root);
+	while (!q.empty()) {
+		treeNode* tmp = q.front();
+		cout << tmp->value << "  ";
+		q.pop();
+		if (tmp->lchild != NULL) {
+			q.push(tmp->lchild);
+		}
+		if (tmp->rchild != NULL) {
+			q.push(tmp->rchild);
+		}
+	}
+}
+
+
+// 递归释放二叉树内存
+void freeTree(treeNode* root) {
+	if (root == nullptr) return;
+	// 先释放左子树
+	freeTree(root->lchild);
+	// 再释放右子树
+	freeTree(root->rchild);
+	// 最后释放当前节点
+	delete root;
+}
 
 int main() {
 	vector<int> a{ 5,4,3,1,2,6,8,9,7 };
-
-
-
 
 
 	system("pause");
