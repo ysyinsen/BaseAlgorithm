@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include<stack>
 
 using namespace std;
 
@@ -81,7 +82,22 @@ void LayerOrder(treeNode* root) {
 		}
 	}
 }
-
+//深度优先遍历
+void DepthFirstSearch(treeNode* root) {
+	stack<treeNode*> s;
+	s.push(root);
+	while (!s.empty()) {
+		treeNode* stackNode = s.top();
+		cout << stackNode->value << endl;
+		s.pop();
+		if (stackNode->rchild) {
+			s.push(stackNode->rchild);
+		}
+		if (stackNode->lchild) {
+			s.push(stackNode->lchild);
+		}
+	}
+}
 
 // 递归释放二叉树内存
 void freeTree(treeNode* root) {
